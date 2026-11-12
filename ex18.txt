@@ -1,0 +1,15 @@
+function createPhoneNumber(numbers){
+    let answ = "(";
+    
+    for (let i = 0; i < 10; i++) {
+        answ += numbers[i];
+        
+        if (i === 2) {
+            answ += ") ";
+        } else if (i === 5) {
+            answ += "-";
+        }
+    }
+    
+    return answ;
+}

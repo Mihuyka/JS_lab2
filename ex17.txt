@@ -1,0 +1,16 @@
+function cache(func) {
+    let dict = {};
+    
+    return function() {
+        let key = JSON.stringify(arguments);
+        
+        if (key in dict) {
+            return dict[key];
+        }
+        
+        let res = func.apply(this, arguments);
+        dict[key] = res;
+        
+        return res;
+    };
+}

@@ -1,0 +1,45 @@
+function howManyTimes(time1,time2){
+    let y1 = parseInt(time1.substring(0, 4));
+    let mo1 = parseInt(time1.substring(5, 7)) - 1;
+    let d1 = parseInt(time1.substring(8, 10));
+    let h1 = parseInt(time1.substring(11, 13));
+    let m1 = parseInt(time1.substring(14, 16));
+    let s1 = parseInt(time1.substring(17, 19));
+    let ts1 = Date.UTC(y1, mo1, d1, h1, m1, s1) / 1000;
+
+    let y2 = parseInt(time2.substring(0, 4));
+    let mo2 = parseInt(time2.substring(5, 7)) - 1;
+    let d2 = parseInt(time2.substring(8, 10));
+    let h2 = parseInt(time2.substring(11, 13));
+    let m2 = parseInt(time2.substring(14, 16));
+    let s2 = parseInt(time2.substring(17, 19));
+    let ts2 = Date.UTC(y2, mo2, d2, h2, m2, s2) / 1000;
+
+    let cur = Date.UTC(y1, mo1, d1, h1, 0, 0) / 1000;
+    let h = h1;
+    let answ = 0;
+
+    while (cur < ts2) {
+        let k = h % 12;
+        if (k === 0) {
+            k = 12;
+        }
+      
+        for (let i = 0; i < k; i++) {
+            let st = cur + i;
+            if (st >= ts1 && st < ts2) {
+                answ++;
+            }
+        }
+
+        let half = cur + 1800;
+        if (half >= ts1 && half < ts2) {
+            answ++;
+        }
+
+        cur += 3600;
+        h = (h + 1) % 24;
+    }
+
+    return answ;
+}

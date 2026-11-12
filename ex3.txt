@@ -1,0 +1,16 @@
+function whatCentury(year)
+{
+  let yearN = Number(year);
+  let century = Math.ceil(yearN / 100);
+  
+  if (century === 11 || century == 12 || century === 13) {
+    return century + "th";
+  }
+  
+  let last = century % 10;
+
+  if (last === 1) { return century + "st"; }
+  else if (last === 2) { return century + "nd"; }
+  else if (last === 3) { return century + "rd"; }
+  else { return century + "th"; }
+}

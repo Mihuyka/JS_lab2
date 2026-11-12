@@ -1,0 +1,18 @@
+function solution(str){
+   let answ = [];
+    let l = str.length;
+
+    for (let i = 0; i < l; i += 2) {
+        let t = str[i];
+      
+        if (i + 1 < l) {
+            t += str[i + 1];
+        } else {
+            t += "_";
+        }
+        
+        answ.push(t);
+    }
+
+    return answ;
+}

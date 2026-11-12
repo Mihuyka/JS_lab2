@@ -1,0 +1,16 @@
+function domainName(url){
+  let a = 0;
+    let pr = url.indexOf("://");
+    
+    if (pr !== -1) {
+        a = pr + 3;
+    }
+    
+    if (url.substring(a, a + 4) === "www.") {
+        a = a + 4;
+    }
+    
+    let e = url.indexOf(".", a);
+    
+    return url.substring(a, e);
+}

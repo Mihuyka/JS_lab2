@@ -1,0 +1,21 @@
+function toWeirdCase(string){
+    let answ = "";
+    let k = 0;
+
+    for (let i = 0; i < string.length; i++) {
+        let c = string[i];
+        if (c === ' ') {
+            answ += c;
+            k = 0; 
+        } else {
+            if (k % 2 === 0) {
+                answ += c.toUpperCase();
+            } else {
+                answ += c.toLowerCase();
+            }
+            k++;
+        }
+    }
+    
+    return answ;
+}

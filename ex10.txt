@@ -1,0 +1,22 @@
+function bingo(ticket, win){
+let answ = 0;
+
+    for (let i = 0; i < ticket.length; i++) {
+        let s = ticket[i][0];
+        let N = ticket[i][1];
+
+        for (let j = 0; j < s.length; j++) {
+            if (s.charCodeAt(j) === N) {
+                answ++;
+                break;
+            }
+        }
+    }
+
+    if (answ >= win) {
+        return 'Winner!';
+    } else {
+        return 'Loser!';
+    }
+}
+

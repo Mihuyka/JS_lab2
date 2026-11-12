@@ -1,0 +1,25 @@
+function isCircleSorted( arr ){
+    let a = arr.length;
+    
+    if (a <= 1) {
+        return true;
+    }
+
+    let b = 0;
+    
+    for (let i = 0; i < a - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            b++;
+        }
+    }
+
+    if (arr[a - 1] > arr[0]) {
+        b++;
+    }
+
+    if (b > 1) {
+        return false;
+    }
+    
+    return true;
+}

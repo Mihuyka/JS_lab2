@@ -1,0 +1,23 @@
+function wave(str){
+  let answ = [];
+    let n = str.length;
+
+    for (let i = 0; i < n; i++) {
+        if (str[i] === ' ') {
+            continue;
+        }
+
+        let t = "";
+        for (let c = 0; c < n; ++c) {
+            if (c === i) {
+                t += str[c].toUpperCase();
+            } else {
+                t += str[c];
+            }
+        }
+        
+        answ.push(t);
+    }
+
+    return answ;
+}

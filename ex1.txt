@@ -1,0 +1,21 @@
+function hasTwoCubeSums(n) {
+	let c = 0;
+  
+  let fl = Math.floor(Math.cbrt(n));
+  
+  for (let i = 1; i <= fl; ++i) {
+    let a3 = Math.pow(i, 3);
+    let b = Math.round(Math.cbrt(n - a3));
+    let b3 = Math.pow(b, 3);
+    
+    if (b3 === (n - a3) && b > i) {
+      c = ++c;
+    }
+  }
+  
+  if (c >= 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
